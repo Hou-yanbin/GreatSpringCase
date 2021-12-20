@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.huatec.mapper.OrderMapper">
+
+    <!--根据用户id查询角色信息-->
+    <select id="orderList" parameterType="long" resultType="Order">
+        select * from sys_order
+    </select>
+
+    <delete id="delOrder">
+        delete from sys_order where id = #{orderId}
+    </delete>
+</mapper>

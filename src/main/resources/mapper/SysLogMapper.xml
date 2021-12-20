@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.huatec.mapper.SysLogMapper">
+
+    <insert id="saveLog" >
+        insert into sys_log values(#{id},#{visitTime},#{userName},#{ip},#{url},#{executionTime},#{method})
+    </insert>
+
+    <!--根据用户id查询角色信息-->
+    <select id="sysLogList" parameterType="long" resultType="SysLog">
+        select * from sys_log
+    </select>
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.huatec.mapper.ProMapper">
+
+    <!--根据用户id查询角色信息-->
+    <select id="proList" parameterType="long" resultType="Pro">
+        select *
+        from sys_pro
+    </select>
+
+    <delete id="delPro">
+        delete
+        from sys_pro
+        where productNum = #{productNum}
+    </delete>
+
+    <select id="findOne" resultType="Pro">
+        select *
+        from sys_pro
+        where productNum = #{productNum}
+    </select>
+
+    <!--    更新-->
+    <update id="updatePro">
+        update sys_pro
+        set productName    = #{productName},
+            productCity    = #{productCity},
+            proDescription = #{proDescription},
+            numbers        = #{numbers}
+        where productNum = #{productNum}
+    </update>
+
+    <insert id="addPro" parameterType="pro">
+        insert into sys_pro
+        values (#{id}, #{productNum}, #{productName}, #{productCity}, #{proDescription}, #{numbers})
+    </insert>
+
+</mapper>
